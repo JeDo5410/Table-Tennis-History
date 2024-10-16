@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Tennis Timeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #2c3e50;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            top: 15px;
+            border-radius: 50%;
+            background: #2c3e50;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .right::after {
+            left: -10px;
+        }
+        .content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .content h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        @media screen and (max-width: 600px) {
+            .timeline::before {
+                left: 31px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item::after {
+                left: 21px;
+            }
+            .left::after, .right::after {
+                left: 21px;
+            }
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Table Tennis Timeline</h1>
+    <div class="timeline">
+        <div class="timeline-item left">
+            <div class="content">
+                <h2>19th Century</h2>
+                <p>Late 1800s: Table tennis appears in England</p>
+                <p>1884: Term 'ping-pong' originates in Far East</p>
+                <p>1890: David Foster introduces first game of tennis on a table</p>
+                <p>1897: First national championships in Hungary</p>
+            </div>
+        </div>
+        <div class="timeline-item right">
+            <div class="content">
+                <h2>Early 20th Century</h2>
+                <p>1901: James Gibb introduces celluloid ball</p>
+                <p>1902: E.C. Gould introduces rubber-covered bats</p>
+                <p>1902: First public tournaments at Queen's Hall, London</p>
+                <p>1902: British Table Tennis Federation created (dissolved in 1905)</p>
+            </div>
+        </div>
+        <div class="timeline-item left">
+            <div class="content">
+                <h2>1920s</h2>
+                <p>1921-1922: Name "table tennis" adopted</p>
+                <p>1921: Table Tennis Association created in England</p>
+                <p>1926: International Table Tennis Federation (ITTF) founded</p>
+                <p>1926: First World Championships held in London</p>
+                <p>1927: French Table Tennis Federation established</p>
+            </div>
+        </div>
+        <div class="timeline-item right">
+            <div class="content">
+                <h2>Mid 20th Century</h2>
+                <p>1950s: Table tennis becomes integral to Asian countries</p>
+                <p>1954-1959: Japanese domination in World Team Championships</p>
+                <p>1956: Hiroji Satoh becomes world champion in Tokyo</p>
+            </div>
+        </div>
+        <div class="timeline-item left">
+            <div class="content">
+                <h2>1960s-1970s</h2>
+                <p>1961, 1963, 1965: Zhuang Zedong wins triple world champion titles</p>
+                <p>1960s: Development of ping-pong diplomacy</p>
+                <p>1977: First "Chinese service" used in World Championships, Birmingham</p>
+            </div>
+        </div>
+        <div class="timeline-item right">
+            <div class="content">
+                <h2>Modern Era</h2>
+                <p>1988: Table tennis becomes an Olympic sport in Seoul</p>
+                <p>1996: Pro Tour emerges</p>
+                <p>Present: ITTF embraces over 200 nations and 33 million members</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
