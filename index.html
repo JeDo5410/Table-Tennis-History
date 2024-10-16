@@ -3,145 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Tennis Timeline</title>
+    <title>Table Tennis Timeline - Interactive History</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+            --highlight-color: #e74c3c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f4f4f4;
         }
-        h1 {
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
             text-align: center;
-            color: #2c3e50;
+            padding: 40px 0;
+            margin-bottom: 40px;
         }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
         .timeline {
             position: relative;
-            padding: 20px 0;
+            padding: 40px 0;
         }
+
         .timeline::before {
             content: '';
             position: absolute;
             top: 0;
             left: 50%;
-            width: 2px;
+            width: 4px;
             height: 100%;
-            background: #2c3e50;
+            background: var(--secondary-color);
+            transform: translateX(-50%);
         }
+
         .timeline-item {
-            padding: 10px 40px;
+            padding: 20px 40px;
             position: relative;
             background-color: inherit;
             width: 50%;
+            perspective: 1000px;
         }
+
         .timeline-item::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            top: 15px;
+            width: 30px;
+            height: 30px;
+            right: -15px;
+            top: 25px;
             border-radius: 50%;
-            background: #2c3e50;
+            background: var(--primary-color);
+            border: 4px solid var(--secondary-color);
+            transition: all 0.3s ease;
         }
+
         .left {
             left: 0;
         }
+
         .right {
             left: 50%;
         }
+
         .right::after {
-            left: -10px;
+            left: -15px;
         }
+
         .content {
-            padding: 20px;
+            padding: 30px;
             background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
         }
+
+        .content:hover {
+            transform: rotateY(5deg) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
         .content h2 {
             margin-top: 0;
-            color: #2c3e50;
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 15px;
         }
-        @media screen and (max-width: 600px) {
+
+        .content p {
+            margin-bottom: 10px;
+        }
+
+        .year {
+            position: absolute;
+            top: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--highlight-color);
+        }
+
+        .left .year {
+            right: -175px;
+        }
+
+        .right .year {
+            left: -175px;
+        }
+
+        @media screen and (max-width: 768px) {
             .timeline::before {
-                left: 31px;
+                left: 40px;
             }
+
             .timeline-item {
                 width: 100%;
-                padding-left: 70px;
+                padding-left: 80px;
                 padding-right: 25px;
             }
+
             .timeline-item::after {
-                left: 21px;
+                left: 25px;
             }
+
             .left::after, .right::after {
-                left: 21px;
+                left: 25px;
             }
+
             .right {
                 left: 0;
             }
+
+            .left .year, .right .year {
+                left: -45px;
+                top: 25px;
+                font-size: 1em;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <h1>Table Tennis Timeline</h1>
-    <div class="timeline">
-        <div class="timeline-item left">
-            <div class="content">
-                <h2>19th Century</h2>
-                <p>Late 1800s: Table tennis appears in England</p>
-                <p>1884: Term 'ping-pong' originates in Far East</p>
-                <p>1890: David Foster introduces first game of tennis on a table</p>
-                <p>1897: First national championships in Hungary</p>
-            </div>
+    <header>
+        <div class="container">
+            <h1>Table Tennis Timeline</h1>
+            <p class="subtitle">An Interactive Journey Through Ping Pong History</p>
         </div>
-        <div class="timeline-item right">
-            <div class="content">
-                <h2>Early 20th Century</h2>
-                <p>1901: James Gibb introduces celluloid ball</p>
-                <p>1902: E.C. Gould introduces rubber-covered bats</p>
-                <p>1902: First public tournaments at Queen's Hall, London</p>
-                <p>1902: British Table Tennis Federation created (dissolved in 1905)</p>
+    </header>
+
+    <div class="container">
+        <div class="timeline">
+            <div class="timeline-item left fade-in">
+                <div class="content">
+                    <span class="year">1880s-1890s</span>
+                    <h2>19th Century Origins</h2>
+                    <p>Late 1800s: Table tennis appears in England</p>
+                    <p>1884: Term 'ping-pong' originates in Far East</p>
+                    <p>1890: David Foster introduces first game of tennis on a table</p>
+                    <p>1897: First national championships in Hungary</p>
+                </div>
             </div>
-        </div>
-        <div class="timeline-item left">
-            <div class="content">
-                <h2>1920s</h2>
-                <p>1921-1922: Name "table tennis" adopted</p>
-                <p>1921: Table Tennis Association created in England</p>
-                <p>1926: International Table Tennis Federation (ITTF) founded</p>
-                <p>1926: First World Championships held in London</p>
-                <p>1927: French Table Tennis Federation established</p>
+            <div class="timeline-item right fade-in">
+                <div class="content">
+                    <span class="year">1900-1910</span>
+                    <h2>Early 20th Century Developments</h2>
+                    <p>1901: James Gibb introduces celluloid ball</p>
+                    <p>1902: E.C. Gould introduces rubber-covered bats</p>
+                    <p>1902: First public tournaments at Queen's Hall, London</p>
+                    <p>1902: British Table Tennis Federation created (dissolved in 1905)</p>
+                </div>
             </div>
-        </div>
-        <div class="timeline-item right">
-            <div class="content">
-                <h2>Mid 20th Century</h2>
-                <p>1950s: Table tennis becomes integral to Asian countries</p>
-                <p>1954-1959: Japanese domination in World Team Championships</p>
-                <p>1956: Hiroji Satoh becomes world champion in Tokyo</p>
+            <div class="timeline-item left fade-in">
+                <div class="content">
+                    <span class="year">1920s</span>
+                    <h2>Establishment of Organizations</h2>
+                    <p>1921-1922: Name "table tennis" adopted</p>
+                    <p>1921: Table Tennis Association created in England</p>
+                    <p>1926: International Table Tennis Federation (ITTF) founded</p>
+                    <p>1926: First World Championships held in London</p>
+                    <p>1927: French Table Tennis Federation established</p>
+                </div>
             </div>
-        </div>
-        <div class="timeline-item left">
-            <div class="content">
-                <h2>1960s-1970s</h2>
-                <p>1961, 1963, 1965: Zhuang Zedong wins triple world champion titles</p>
-                <p>1960s: Development of ping-pong diplomacy</p>
-                <p>1977: First "Chinese service" used in World Championships, Birmingham</p>
+            <div class="timeline-item right fade-in">
+                <div class="content">
+                    <span class="year">1950s</span>
+                    <h2>Asian Dominance Begins</h2>
+                    <p>1950s: Table tennis becomes integral to Asian countries</p>
+                    <p>1954-1959: Japanese domination in World Team Championships</p>
+                    <p>1956: Hiroji Satoh becomes world champion in Tokyo</p>
+                </div>
             </div>
-        </div>
-        <div class="timeline-item right">
-            <div class="content">
-                <h2>Modern Era</h2>
-                <p>1988: Table tennis becomes an Olympic sport in Seoul</p>
-                <p>1996: Pro Tour emerges</p>
-                <p>Present: ITTF embraces over 200 nations and 33 million members</p>
+            <div class="timeline-item left fade-in">
+                <div class="content">
+                    <span class="year">1960s-1970s</span>
+                    <h2>Chinese Supremacy and Diplomacy</h2>
+                    <p>1961, 1963, 1965: Zhuang Zedong wins triple world champion titles</p>
+                    <p>1960s: Development of ping-pong diplomacy</p>
+                    <p>1977: First "Chinese service" used in World Championships, Birmingham</p>
+                </div>
+            </div>
+            <div class="timeline-item right fade-in">
+                <div class="content">
+                    <span class="year">1988-Present</span>
+                    <h2>Olympic Sport and Global Popularity</h2>
+                    <p>1988: Table tennis becomes an Olympic sport in Seoul</p>
+                    <p>1996: Pro Tour emerges</p>
+                    <p>Present: ITTF embraces over 200 nations and 33 million members</p>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -100px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('appear');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
 </body>
 </html>
