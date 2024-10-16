@@ -266,7 +266,7 @@
             <p class="subtitle">An Interactive Journey Through Ping Pong History</p>
         </div>
     </header>
-
+<div style="display: flex; justify-content: center; align-items: center;"><h1>I LOVE YOU WIFEY NADIA</h1></div>
     <div class="container">
         <div class="timeline">
             <div class="timeline-item left fade-in">
@@ -330,9 +330,10 @@
         </div>
         <div class="glossary fade-in">
             <h2>Table Tennis Glossary</h2>
-            <div class="glossary-search">
+            <!-- <div class="glossary-search">
                 <input type="text" id="glossary-search-input" placeholder="Search glossary...">
-            </div>
+            </div> -->
+            <div id="search-results" class="search-results"></div>
             <div class="glossary-container">
                 <div class="glossary-category">
                     <h3>Basic Terms</h3>
@@ -571,51 +572,51 @@
                 });
 
                 // Search functionality
-// Search functionality
-const searchInput = document.getElementById('glossary-search-input');
-const glossaryItems = document.querySelectorAll('.glossary-item');
-const glossaryCategories = document.querySelectorAll('.glossary-category');
+                const searchInput = document.getElementById('glossary-search-input');
+                const glossaryItems = document.querySelectorAll('.glossary-item');
+                const glossaryCategories = document.querySelectorAll('.glossary-category');
 
-searchInput.addEventListener('input', function() {
-    const searchTerm = this.value.toLowerCase();
-    console.log('Searching for:', searchTerm); // Debug log
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    console.log('Searching for:', searchTerm); // Debug log
 
-    let anyItemVisible = false;
+                    let anyItemVisible = false;
 
-    glossaryItems.forEach(item => {
-        const term = item.querySelector('h4').textContent.toLowerCase();
-        const definition = item.querySelector('p').textContent.toLowerCase();
+                    glossaryItems.forEach(item => {
+                        const term = item.querySelector('h4').textContent.toLowerCase();
+                        const definition = item.querySelector('p').textContent.toLowerCase();
 
-        if (term.includes(searchTerm) || definition.includes(searchTerm)) {
-            item.style.display = 'block !important';
-            anyItemVisible = true;
-        } else {
-            item.style.display = 'none !important';
-        }
-    });
+                        if (term.includes(searchTerm) || definition.includes(searchTerm)) {
+                            item.style.display = 'block !important';
+                            anyItemVisible = true;
+                        } else {
+                            item.style.display = 'none !important';
+                        }
+                    });
 
-    console.log('Any item visible:', anyItemVisible); // Debug log
+                    console.log('Any item visible:', anyItemVisible); // Debug log
 
-    glossaryCategories.forEach(category => {
-        const visibleItems = category.querySelectorAll('.glossary-item[style*="display: block"]');
-        console.log('Visible items in category:', visibleItems.length); // Debug log
-        if (visibleItems.length > 0) {
-            category.style.display = 'block !important';
-        } else {
-            category.style.display = 'none !important';
-        }
-    });
+                    glossaryCategories.forEach(category => {
+                        const visibleItems = category.querySelectorAll('.glossary-item[style*="display: block"]');
+                        console.log('Visible items in category:', visibleItems.length); // Debug log
+                        if (visibleItems.length > 0) {
+                            category.style.display = 'block !important';
+                        } else {
+                            category.style.display = 'none !important';
+                        }
+                    });
 
-    // If no items are visible, show a "No results" message
-    const noResultsMessage = document.getElementById('no-results-message');
-    if (noResultsMessage) {
-        noResultsMessage.style.display = anyItemVisible ? 'none' : 'block';
-    }
-});
+                    // If no items are visible, show a "No results" message
+                    const noResultsMessage = document.getElementById('no-results-message');
+                    if (noResultsMessage) {
+                        noResultsMessage.style.display = anyItemVisible ? 'none' : 'block';
+                    }
+                });
 
-// Initial setup to show all items
-glossaryItems.forEach(item => item.style.display = 'block');
-glossaryCategories.forEach(category => category.style.display = 'block');
+                // Initial setup to show all items
+                glossaryItems.forEach(item => item.style.display = 'block');
+                glossaryCategories.forEach(category => category.style.display = 'block');
+                        
             });            
             </script>
 </body>
