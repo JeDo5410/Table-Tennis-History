@@ -173,15 +173,90 @@
         }
 
         .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in:not(.appear) {
             opacity: 0;
             transform: translateY(50px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .fade-in.appear {
             opacity: 1;
             transform: translateY(0);
         }
+        .glossary {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        padding: 30px;
+        margin-top: 40px;
+    }
+
+    .glossary h2 {
+        color: var(--primary-color);
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        text-align: center;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+    }
+
+    .glossary-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .glossary-category {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .glossary-category h3 {
+        color: var(--secondary-color);
+        font-size: 1.4em;
+        margin-bottom: 15px;
+        border-bottom: 1px solid var(--secondary-color);
+        padding-bottom: 5px;
+    }
+
+    .glossary-item {
+        margin-bottom: 15px;
+    }
+
+    .glossary-item h4 {
+        color: var(--primary-color);
+        font-size: 1.1em;
+        margin-bottom: 5px;
+    }
+
+    .glossary-item p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+
+    .glossary-search {
+        margin-bottom: 20px;
+    }
+
+    .glossary-search input {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid var(--secondary-color);
+        border-radius: 5px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .glossary-container {
+            grid-template-columns: 1fr;
+        }
+    }
     </style>
 </head>
 <body>
@@ -253,30 +328,295 @@
                 </div>
             </div>
         </div>
-    </div>
+        <div class="glossary fade-in">
+            <h2>Table Tennis Glossary</h2>
+            <div class="glossary-search">
+                <input type="text" id="glossary-search-input" placeholder="Search glossary...">
+            </div>
+            <div class="glossary-container">
+                <div class="glossary-category">
+                    <h3>Basic Terms</h3>
+                    <div class="glossary-item">
+                        <h4>Table tennis</h4>
+                        <p>Also called Ping-Pong, a racket sport similar in principle to lawn tennis and played on a flat table divided into two equal parts by a net fixed across its width at the middle.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Ping-Pong</h4>
+                        <p>Another name for table tennis, originating from the onomatopoeic sound of the ball in the Far East in 1884.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Singles</h4>
+                        <p>A game played by two people.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Doubles</h4>
+                        <p>A game played by four people.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Racket sport</h4>
+                        <p>A category of sports that use rackets to hit a ball or other object.</p>
+                    </div>
+                </div>
+                <div class="glossary-category">
+                    <h3>Equipment</h3>
+                    <div class="glossary-item">
+                        <h4>Net</h4>
+                        <p>A barrier fixed across the width at the middle of the table.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Bats</h4>
+                        <p>Also known as paddles or rackets, used by players to hit the ball.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Ball</h4>
+                        <p>A small light ball used in table tennis. The official rules state that it shall be spherical, with a diameter of 40mm and weigh 2.7g and be made of celluloid or similar plastic materials.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Table</h4>
+                        <p>The standard measurements for a competition size table tennis table is 152.5cm (5ft) in width, 274cm (9ft) in length and 76cm (2.5ft) in height.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Racket</h4>
+                        <p>A table tennis racket (also known as a "paddle, bat, blade") is used by table tennis players. It is usually made from laminated wood covered with rubber on one or two sides depending on the player's grip.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Blade</h4>
+                        <p>Usually made from laminated wood covered with rubber on one or two sides depending on the player's grip.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Rubbers</h4>
+                        <p>The coverings on a table tennis racket used to hit the ball.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Grip</h4>
+                        <p>The handle part of a table tennis racket.</p>
+                    </div>
+                </div>
+                <div class="glossary-category">
+                    <h3>Gameplay</h3>
+                    <div class="glossary-item">
+                        <h4>Rally</h4>
+                        <p>A sequence of hitting the ball back and forth during play.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Volley</h4>
+                        <p>Hitting the ball before it bounces on your side of the table, which is not allowed in table tennis.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Edge ball</h4>
+                        <p>A ball that bounces on the top edge of the horizontal table top surface is counted as valid.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Game</h4>
+                        <p>Played to 11 points. A game must be won by two points.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Match</h4>
+                        <p>Generally the best three of five Games.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Deuce</h4>
+                        <p>When the score is tied 10-10, service alternates at every point.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Let serve</h4>
+                        <p>When a served ball hits the net on the way over and otherwise legally bounces in play, it's a "let" serve and is done over.</p>
+                    </div>
+                </div>
+                <div class="glossary-category">
+                    <h3>Equipment Details</h3>
+                    <div class="glossary-item">
+                        <h4>Celluloid ball</h4>
+                        <p>Introduced by James Gibb in 1901, lighter than rubber balls.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Rubber-covered bats</h4>
+                        <p>Introduced by E.C. Gould in 1902, bats covered in rubber and rubberized pimples.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Foam</h4>
+                        <p>Material that transformed classic bats when introduced in the 1950s.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Star ratings (for balls)</h4>
+                        <p>Typically divided into 3 different star ratings (1-star, 2-star and 3-star).</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Ready made (bats)</h4>
+                        <p>Table tennis bats that come with the rubbers attached to the blade by the manufacturer.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Custom made (bats)</h4>
+                        <p>Table tennis bats that require buying each component and assembling it yourself.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Smooth rubber</h4>
+                        <p>A type of rubber that will give good control and can help develop strokes.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Pimpled rubber (pips)</h4>
+                        <p>Generally designed for advanced players who want to play a particular type of game.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Red and black sides of the racket</h4>
+                        <p>In most cases, the red side allows the ping pong ball to go faster.</p>
+                    </div>
+                </div>
+                <div class="glossary-category">
+                    <h3>Table Components</h3>
+                    <div class="glossary-item">
+                        <h4>Playing surface</h4>
+                        <p>The upper surface of the table.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Fiberboard</h4>
+                        <p>Material used to manufacture modern table tennis tables.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>High-density fiberboard</h4>
+                        <p>Commonly used for manufacturing table tennis tables.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Medium density fiberboard (MDF)</h4>
+                        <p>An alternative material that can be used for building home table tennis tables.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Net assembly</h4>
+                        <p>Consists of the net, its suspension and the supporting posts, including the clamps attaching them to the table.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Side line</h4>
+                        <p>The outside limits of the post are 15.25cm outside the side line.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Suspension cord</h4>
+                        <p>Part of the net assembly used to hold the net in place.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Supporting posts</h4>
+                        <p>Upright stands that are part of the net assembly, holding the net at the correct height.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Clamps</h4>
+                        <p>Devices used to attach the net assembly to the table.</p>
+                    </div>
+                </div>
+                <div class="glossary-category">
+                    <h3>Organizations and Events</h3>
+                    <div class="glossary-item">
+                        <h4>Table Tennis Association</h4>
+                        <p>Created in England in 1921.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>International Table Tennis Federation (ITTF)</h4>
+                        <p>The world-governing body of the sport of table tennis, founded in 1926.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>World Championships</h4>
+                        <p>Held annually and supervised by the ITTF.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Pro Tour</h4>
+                        <p>Emerged in 1996 as table tennis gradually turned professional.</p>
+                    </div>
+                </div>
+                <div class="glossary-category">
+                    <h3>Other</h3>
+                    <div class="glossary-item">
+                        <h4>Chinese service</h4>
+                        <p>First used in 1977 during the World Championships in Birmingham, transformed service from a mere serve to a strategic element of the game.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Playing clothing</h4>
+                        <p>Normally consists of a short-sleeved shirt and shorts or skirt, socks, and playing shoes.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Referee</h4>
+                        <p>An official who can give permission for players to wear garments other than normal playing clothing.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Honor system</h4>
+                        <p>Applies to disagreements when no referee is present during a match.</p>
+                    </div>
+                    <div class="glossary-item">
+                        <h4>Tennison</h4>
+                        <p>An early version of table tennis introduced by David Foster in 1890.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script>
-        const faders = document.querySelectorAll('.fade-in');
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                // Fade-in functionality
+                const faders = document.querySelectorAll('.fade-in');
+                const appearOptions = {
+                    threshold: 0,
+                    rootMargin: "0px 0px -50px 0px"
+                };
 
-        const appearOptions = {
-            threshold: 0.2,
-            rootMargin: "0px 0px -100px 0px"
-        };
+                const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            return;
+                        } else {
+                            entry.target.classList.add('appear');
+                            appearOnScroll.unobserve(entry.target);
+                        }
+                    });
+                }, appearOptions);
 
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add('appear');
-                    appearOnScroll.unobserve(entry.target);
-                }
-            });
-        }, appearOptions);
+                faders.forEach(fader => {
+                    appearOnScroll.observe(fader);
+                });
 
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
-        });
-    </script>
+                // Search functionality
+// Search functionality
+const searchInput = document.getElementById('glossary-search-input');
+const glossaryItems = document.querySelectorAll('.glossary-item');
+const glossaryCategories = document.querySelectorAll('.glossary-category');
+
+searchInput.addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    console.log('Searching for:', searchTerm); // Debug log
+
+    let anyItemVisible = false;
+
+    glossaryItems.forEach(item => {
+        const term = item.querySelector('h4').textContent.toLowerCase();
+        const definition = item.querySelector('p').textContent.toLowerCase();
+
+        if (term.includes(searchTerm) || definition.includes(searchTerm)) {
+            item.style.display = 'block !important';
+            anyItemVisible = true;
+        } else {
+            item.style.display = 'none !important';
+        }
+    });
+
+    console.log('Any item visible:', anyItemVisible); // Debug log
+
+    glossaryCategories.forEach(category => {
+        const visibleItems = category.querySelectorAll('.glossary-item[style*="display: block"]');
+        console.log('Visible items in category:', visibleItems.length); // Debug log
+        if (visibleItems.length > 0) {
+            category.style.display = 'block !important';
+        } else {
+            category.style.display = 'none !important';
+        }
+    });
+
+    // If no items are visible, show a "No results" message
+    const noResultsMessage = document.getElementById('no-results-message');
+    if (noResultsMessage) {
+        noResultsMessage.style.display = anyItemVisible ? 'none' : 'block';
+    }
+});
+
+// Initial setup to show all items
+glossaryItems.forEach(item => item.style.display = 'block');
+glossaryCategories.forEach(category => category.style.display = 'block');
+            });            
+            </script>
 </body>
 </html>
